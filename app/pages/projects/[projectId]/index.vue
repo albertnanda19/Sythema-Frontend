@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Project dashboard - overview of single project
 definePageMeta({
-  middleware: ['project-context']
+  middleware: ['auth', 'project-context']
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // API keys management page
 definePageMeta({
-  middleware: ['project-context']
+  middleware: ['auth', 'project-context']
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Replay detail page
 definePageMeta({
-  middleware: ['project-context']
+  middleware: ['auth', 'project-context']
 })
 </script>
 

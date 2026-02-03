@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Transform rule sets list page
 definePageMeta({
-  middleware: ['project-context']
+  middleware: ['auth', 'project-context']
 })
 </script>
 

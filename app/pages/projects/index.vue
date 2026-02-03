@@ -1,5 +1,8 @@
 <script setup lang="ts">
 // Projects list page - shows all projects for authenticated user
+definePageMeta({
+  middleware: ['auth'],
+});
 </script>
 
 <template>

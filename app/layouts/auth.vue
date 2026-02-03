@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    login
+    <slot />
   </div>
 </template>

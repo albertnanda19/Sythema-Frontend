@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Session detail page
 definePageMeta({
-  middleware: ['project-context']
+  middleware: ['auth', 'project-context']
 })
 </script>
 

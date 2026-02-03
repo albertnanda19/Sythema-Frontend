@@ -4,6 +4,12 @@
 
 <template>
   <div>
-    <slot />
+    <div />
+    <div>
+      <div />
+      <main>
+        <slot />
+      </main>
+    </div>
   </div>
 </template>

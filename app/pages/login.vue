@@ -1,13 +1,12 @@
 <script setup lang="ts">
 // Login page - uses auth layout
 definePageMeta({
-  layout: 'auth'
-})
+  layout: 'public',
+});
 </script>
 
 <template>
-  <div class="text-red-600">
+  <div>
     <!-- Login form will be implemented here -->
-     Login
   </div>
 </template>
