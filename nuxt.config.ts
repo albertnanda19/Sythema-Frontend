@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ssr: true,
 
   // Modules
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "@pinia/nuxt"],
 
   // Global CSS
   css: ["~/assets/css/main.css"],
