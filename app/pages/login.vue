@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'public'
+  layout: 'auth',
+  middleware: ['guest'],
 })
 
 useHead({
@@ -13,6 +14,9 @@ const loading = ref(false)
 const errorMessage = ref('')
 const emailInputRef = ref(null)
 
+const route = useRoute()
+const authStore = useAuthStore()
+
 const handleLogin = async () => {
   if (!email.value || !password.value) {
     errorMessage.value = 'Email and password are required.'
@@ -23,20 +27,25 @@ const handleLogin = async () => {
   errorMessage.value = ''
 
   try {
-    const response = await $fetch('/api/v1/auth/login', {
+    const loginResponse = await $fetch('/api/v1/auth/login', {
       method: 'POST',
+      credentials: 'include',
       body: {
         email: email.value,
         password: password.value
       }
     })
 
-    // Assuming response follows semantic structure (status, message, data)
-    // If successful, redirect
-    await navigateTo('/dashboard')
+    authStore.setFromMeResponse(loginResponse)
+
+    const redirect = typeof route.query.redirect === 'string' && route.query.redirect.startsWith('/')
+      ? route.query.redirect
+      : null
+
+    await navigateTo(redirect ?? { name: 'projects' })
   } catch (err: any) {
     // Handle error without reloading
-    errorMessage.value = err.response?._data?.message || 'Authentication failed. Please check your credentials.'
+    errorMessage.value = err?.data?.message || err.response?._data?.message || 'Authentication failed. Please check your credentials.'
     
     // Focus password field or email if needed, but don't shake too aggressively
   } finally {
