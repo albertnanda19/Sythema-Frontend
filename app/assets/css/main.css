@@ -1,2 +1,11 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  @apply antialiased text-gray-900 bg-white dark:bg-gray-950 dark:text-gray-100 selection:bg-gray-900 selection:text-white dark:selection:bg-white dark:selection:text-gray-900;
+}
